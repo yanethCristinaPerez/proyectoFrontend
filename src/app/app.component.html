@@ -1,37 +1,4 @@
-<div class="formularioRegistro">
 
-    <h3>registro</h3>
-    <FORm  [formGroup]="usuarioForm" (ngSubmit)="guardar()">
-        <div class="form-group">
-            <label>Tipo de documento</label>
-            <select name="documentType" id="documentType" formControlName="documentType" class="form-control" >
-            <option [ngValue]="item" *ngFor="let item of documentTypes">{{ item.document }}</option></select>
-        </div>
-        <div class="form-group">
-            <label>Numero de documento</label>
-            <input type="number" formControlName="documentNumber" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>nombre</label>
-            <input type="text" formControlName="name" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>apelllido</label>
-            <input type="text" formControlName="lastName" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>email</label>
-            <input type="email" formControlName="email" class="form-control">
-        </div>
-        <div class="form-group">
-            <label>password</label>
-            <input type="password" formControlName="password"class="form-control">
-        </div>
-        
-          
-    </FORm>
-    <button type="submit" class="btn btn-dark" (click)="guardar()" >Registrar</button>
-
-</div>
-
+<app-login-page></app-login-page>
 <router-outlet></router-outlet>
+
