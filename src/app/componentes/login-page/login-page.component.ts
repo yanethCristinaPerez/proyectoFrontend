@@ -17,6 +17,8 @@ export class LoginPageComponent implements OnInit{
 constructor(
   public fb:FormBuilder,
   public loginService:LoginService,
+  
+
 ){}
 
   ngOnInit(): void {
@@ -30,13 +32,14 @@ constructor(
     
   }
 
+  
+  consultar():void{
 
-  consultar():void{    
+    
 
     this.loginService.login(this.loginForm?.value).subscribe( resp=>{
       this.loginForm?.reset;
-
-      console.log(this.loginForm)
+    
 
     },
     error => {console.error(error)}

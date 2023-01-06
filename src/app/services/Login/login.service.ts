@@ -14,12 +14,14 @@ export class LoginService {
 
 
 
- //public login(login: any): Observable<any>{
+ public login(login: any): Observable<any>{
 
-   // return this.http.post(this.API_SERVER,login);
-  //}
+  console.log(login)
 
-  public login(login: any): Observable<any>{
-   return this.http.get(this.API_SERVER)
- }
+   return this.http.post(this.API_SERVER,login);
+  }
+
+ /*  public login(login: any): Observable<any>{
+   return this.http.get(this.API_SERVER+"?email=yuioh@gmail.com&password=5678")
+ } */
 }
