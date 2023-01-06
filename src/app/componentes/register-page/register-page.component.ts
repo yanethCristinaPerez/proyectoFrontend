@@ -8,7 +8,6 @@ import { DocumentTypesService } from 'src/app/services/documentTypes/document-ty
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.css']
 })
-
 export class RegisterPageComponent implements OnInit{
 
   usuarioForm!: FormGroup;
@@ -60,3 +59,4 @@ export class RegisterPageComponent implements OnInit{
   }
 
 }
+

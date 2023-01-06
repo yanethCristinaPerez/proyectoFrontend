@@ -1,4 +1,3 @@
-
 <div class="formularioRegistro">
 
     <h3>registro</h3>
@@ -31,8 +30,15 @@
             <label>password</label>
             <input type="password" formControlName="password"class="form-control">
         </div>
+        <div>
+            <a routerLink="/login" >regresar</a>
+        </div>
+        <div>
+
+            <button type="submit" class="btn btn-dark" (click)="guardar()" [disabled]="usuarioForm.invalid" >Registrar</button>
+        </div>
         
-        <button type="submit" class="btn btn-dark" (click)="guardar()" >Registrar</button>      
+        
     </FORm>
     
 

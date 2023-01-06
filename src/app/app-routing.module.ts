@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomePageComponent } from './componentes/pages/home-page/home-page.component';
-import { LoginPageComponent } from './componentes/pages/login-page/login-page.component';
-import { RegisterPageComponent } from './componentes/pages/register-page/register-page.component';
+import { LoginPageComponent } from 'src/app/componentes/login-page/login-page.component';
+import { RegisterPageComponent } from 'src/app/componentes/register-page/register-page.component';
 
 const routes: Routes = [
   {
@@ -20,11 +19,7 @@ const routes: Routes = [
     path:'register',
     component:RegisterPageComponent
   },
-  {
-
-    path:'home',
-    component: HomePageComponent
-  }
+  
 ];
 
 @NgModule({
