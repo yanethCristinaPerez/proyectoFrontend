@@ -7,16 +7,33 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
-import { LoginPageComponent } from 'src/app/componentes/login-page/login-page.component';
-import { RegisterPageComponent } from './componentes/register-page/register-page.component';
+import { LoginComponent } from './componentes/auth/login.component';
+import { RegistroComponent } from './componentes/auth/registro.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HeaderComponent } from './compartidos/header/header.component';
+import { FooterComponent } from './compartidos/footer/footer.component';
+import { CatalogoComponent } from './componentes/catalogo/catalogo.component';
+import { ItemComponent } from './componentes/item/item.component';
+import { HomeComponent } from './componentes/home/home.component';
+import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
+import { MasBuscadosComponent } from './componentes/masBuscados/mas-buscados.component';
+
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginPageComponent,
-    RegisterPageComponent,
+    LoginComponent,
+    RegistroComponent,
+    HeaderComponent,
+    FooterComponent,
+    CatalogoComponent,
+    ItemComponent,
+    HomeComponent,
+    BusquedaComponent,
+    MasBuscadosComponent,
+
 
   ],
   imports: [
@@ -25,7 +42,8 @@ import { RegisterPageComponent } from './componentes/register-page/register-page
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

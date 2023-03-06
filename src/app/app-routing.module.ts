@@ -1,29 +1,30 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginPageComponent } from 'src/app/componentes/login-page/login-page.component';
-import { RegisterPageComponent } from 'src/app/componentes/register-page/register-page.component';
+import { FooterComponent } from './compartidos/footer/footer.component';
+import { HeaderComponent } from './compartidos/header/header.component';
+import { LoginComponent } from './componentes/auth/login.component';
+import { RegistroComponent } from './componentes/auth/registro.component';
+import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
+import { CatalogoComponent } from './componentes/catalogo/catalogo.component';
+import { HomeComponent } from './componentes/home/home.component';
+import { ItemComponent } from './componentes/item/item.component';
 
 const routes: Routes = [
-  {
-
-    path:'',
-    pathMatch:'full',
-    redirectTo:'login'
-  },
-  {
-    path:'login',
-    component: LoginPageComponent
-
-  },
-  {
-    path:'register',
-    component:RegisterPageComponent
-  },
-  
+  {  path:'', pathMatch:'full', redirectTo:'login' },
+  {  path: 'login', component: LoginComponent},
+  {  path:'registro',component: RegistroComponent},
+  {  path:'header',component: HeaderComponent},
+  {  path:'footer',component: FooterComponent},
+  {  path:'catalogo/:genero',component: CatalogoComponent},
+  {  path:'item/:id',component: ItemComponent},
+  {  path:'home',component: HomeComponent},
+  {  path:'busqueda/:termino',component: BusquedaComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
+
+
 export class AppRoutingModule { }

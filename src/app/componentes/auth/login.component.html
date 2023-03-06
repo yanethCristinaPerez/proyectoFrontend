@@ -1,0 +1,49 @@
+<div class="container">
+
+    <form id="signup" [formGroup]="loginForm">
+
+        <div class="header">
+        
+            <h3>Login</h3>
+            
+            <p>logo</p>
+            
+        </div>
+        
+        <div class="sep"></div>
+
+        <div class="inputs">
+        
+            <input type="email" placeholder="e-mail" autofocus formControlName="correo" class="form-control"/>
+        
+            <input type="password" placeholder="Password" formControlName="contrasena" class="form-control"/>
+            
+            <div class="checkboxy">
+                <input name="cecky" id="checky" value="1" type="checkbox" /><label class="terms">Acepto terminos y condiciones</label>
+            </div>
+
+            
+            <div>
+                <!-- routerLink="/registro" -->
+                <!-- <a (click)="openModal()" >ir al registro</a> -->
+
+                <button type="button" class="btn btn-outline-primary" (click)="openModal()">ir al registro</button>
+            </div>
+
+            
+            <button type="button" id="submit" class="btn btn-outline-primary" (click)="consultar()">Ingresar</button>
+            <!-- <a id="submit" (click)="consultar()">Ingresar</a> -->
+        
+        </div>
+
+    </form>
+
+</div>
+
+<div class="" *ngIf="modalSwitch == true" >
+    <app-registro></app-registro>
+</div>
+
+<div class="imagen2">
+    <img src="assets/img/post-inner-1.jpg" alt="">
+</div>

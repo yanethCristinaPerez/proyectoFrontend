@@ -1,0 +1,26 @@
+.header{
+    position: fixed;
+}
+
+.footer{
+    text-align: center;
+    padding: 1em;
+    align-self: flex-end;
+}
+
+.imagen{
+    text-align: center;
+}
+
+.cuadro{
+      width: 90%;
+      max-width: 1240px;
+      margin: 0 auto;
+      
+      display: grid;
+      
+       grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 100px;
+     
+    
+}

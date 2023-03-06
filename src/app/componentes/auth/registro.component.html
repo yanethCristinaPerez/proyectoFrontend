@@ -1,0 +1,73 @@
+<ng-template #contenido let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title">Registro</h4>
+        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <div class="container">
+
+            <form id="signup"  [formGroup]="registroForm">
+        
+                <div class="col-md-6 ml-5">
+                    <div class="form-group">
+                        <label>Tipo de documento</label>
+                        <select name="tipoDocumento" id="tipoDocumento" formControlName="tiposDocumentos" class="form-control" >
+                        <option [ngValue]="item" *ngFor="let item of tipoDocumento">{{ item.tipoDocumento }}</option></select>
+                    </div>
+                    <div class="form-group">
+                        <label>Número de documento</label>
+                        <input type="number" formControlName="numeroDocumento" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Nombres</label>
+                        <input type="text" formControlName="nombres" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Apellidos</label>
+                        <input type="text" formControlName="apellidos" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" formControlName="correo" class="form-control">
+                    </div>
+              
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="password" formControlName="contrasena"class="form-control">
+                    </div>
+                    <div>
+                      La Contraseña debe contener un carácter especial
+                    </div>
+                    <div>
+                        <!-- <a routerLink="/registro" >ir al registro</a> -->
+                        <!-- <button type="submit" class="btn btn-dark" (click)="closeModal()">regresar</button> -->
+                    </div>
+                    <div>
+                        <br>
+                    </div>
+                    
+                    <div>
+        
+                        <button type="submit" class="btn btn-dark" (click)="guardar()" [disabled]="registroForm.invalid" >Registrar</button>
+                   </div>
+                
+                </div>
+        
+            </form>
+        
+        </div>
+        
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-success" (click)="modal.close()">Ok!</button>
+    </div>
+</ng-template>
+
+<div class="alerta">
+    <button type="button" class="btn btn-outline-primary" (click)="openCentrado(contenido)">confirmar</button>
+</div>
+
+
+

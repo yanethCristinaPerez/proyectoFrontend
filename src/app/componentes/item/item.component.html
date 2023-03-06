@@ -1,0 +1,39 @@
+
+<section class="ae-container-fluid ae-container-fluid--inner rk-portfolio">
+  
+  <div class="content-section">
+    <div class="card">
+        <h1>imagen: <small>{{productos.imagen}}</small></h1>
+        <h2>nombre: <small>{{productos.nombre}}</small></h2>
+        <h1>descripcion: <small>{{productos.descripcion}}</small></h1>
+        <h2>seccion: <small>{{productos.genero.genero}}</small></h2>
+        <h2>color: <small>{{productos.color.color}}</small></h2>
+        <h2>cantidad Disponible: <small>{{productos.cantidadDisponible}}</small></h2>
+      
+        <div >
+          <label>Tallas</label>
+          <select name="tallas" id="tallas" class="form-control" [(ngModel)]="tallaSeleccionada">
+          <option [ngValue]="item" *ngFor="let item of tallas">{{ item.talla }}</option></select>
+          
+      </div>
+      
+        <h3>precio: <small>{{productos.precio | number}}</small></h3>
+        <h4>marca: <small>{{productos.marca.marca}}</small></h4>
+        
+        <div class="form-group">
+          <label>Cantidad deseada</label>
+          <input type="number"  class="form-control"  [(ngModel)]="cantidad">
+      </div>
+      <!-- <div class="form-group">
+        <label>talla deseada</label>
+        <input type="text"  class="form-control" [(ngModel)]="cantidad">
+    </div> -->
+
+
+        <button type="submit" class="btn btn-dark" (click)="agregarCarrito()" >agregar al carrito</button>
+    </div>
+  
+  </div>
+       
+    
+  </section> 

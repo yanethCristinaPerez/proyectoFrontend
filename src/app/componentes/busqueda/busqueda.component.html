@@ -1,0 +1,14 @@
+
+<div class="content-section">
+    <div class="container" *ngFor="let item of productos">
+   
+    <div class="card">
+        <h1>imagen <small>{{item.imagen}}</small></h1>
+        <h2>nombre: <small>{{item.nombre}}</small></h2>
+        <h1>producto: <small>{{item.descripcion}}</small></h1>
+        <a [routerLink]="['/item', item.idProductos]">click</a>
+    </div>
+  
+  </div>
+</div>
+   
