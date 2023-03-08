@@ -5,7 +5,7 @@ import { Usuario } from "./usuario";
 export interface Carrito {
     
     cantidadPedida:number;
-    tallaPedida:number;
+    tallaPedida:Tallas;
     usuario:Usuario;
     productos:Productos;
             

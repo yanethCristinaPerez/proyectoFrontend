@@ -17,6 +17,7 @@ import { ItemComponent } from './componentes/item/item.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
 import { MasBuscadosComponent } from './componentes/masBuscados/mas-buscados.component';
+import { CarritoComponent } from './componentes/carrito/carrito.component';
 
 
 
@@ -33,7 +34,8 @@ import { MasBuscadosComponent } from './componentes/masBuscados/mas-buscados.com
     HomeComponent,
     BusquedaComponent,
     MasBuscadosComponent,
-
+    CarritoComponent,
+    
 
   ],
   imports: [

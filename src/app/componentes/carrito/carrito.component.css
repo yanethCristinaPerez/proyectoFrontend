@@ -1,0 +1,14 @@
+.tabla {
+	width: 100px;
+	height: 300px;
+    display: flex;
+
+    position: relative;
+    top: 50%;
+    left: 25%;
+}
+
+.eliminar{
+   /* height: 80px;  */
+  width: 800px;
+}

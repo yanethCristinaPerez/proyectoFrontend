@@ -5,6 +5,7 @@ import { HeaderComponent } from './compartidos/header/header.component';
 import { LoginComponent } from './componentes/auth/login.component';
 import { RegistroComponent } from './componentes/auth/registro.component';
 import { BusquedaComponent } from './componentes/busqueda/busqueda.component';
+import { CarritoComponent } from './componentes/carrito/carrito.component';
 import { CatalogoComponent } from './componentes/catalogo/catalogo.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { ItemComponent } from './componentes/item/item.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
   {  path:'item/:id',component: ItemComponent},
   {  path:'home',component: HomeComponent},
   {  path:'busqueda/:termino',component: BusquedaComponent},
+  {  path:'carrito',component: CarritoComponent},
 ];
 
 @NgModule({

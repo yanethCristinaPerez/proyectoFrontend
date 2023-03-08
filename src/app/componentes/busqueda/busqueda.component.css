@@ -1,0 +1,39 @@
+:root{
+    --card-color: rgba(54, 0, 204, 0.555);
+    --card-header-color: crimson;
+    --card-body-color: rgb(40, 4, 124);
+    --card-footer-color: indigo;
+ }
+
+/* .container{
+
+    width: 90%;
+  max-width: 1240px;
+  margin: 0 auto;
+  
+  display: grid;
+  
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+
+} */
+
+ .card{
+     
+     margin-left: 10px;
+     background: var(--card-color);
+     color: black;
+     width: 300px;
+     padding: 20px;
+     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.377);
+     border-radius: 20px;            
+     min-height: 100%;    
+     top: 30px;
+     transition: all .1s ease-in;
+     
+     /* display: flex;
+    flex-direction: column; 
+    position: relative;*/
+    
+ } 

@@ -1,0 +1,60 @@
+<div class="tabla">
+
+  <table class="table table-sm">
+    <thead>
+      <tr>
+        <th scope="col">item</th>
+        <th scope="col">codigo del producto</th>
+        <th scope="col">nombre</th>
+        <th scope="col">marca</th>
+        <th scope="col">seccion</th>
+        <th scope="col">precio</th>
+        <th scope="col">cantidad</th>
+        <th scope="col">talla</th>
+        <th scope="col">subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of carrito;let i = 'index'">
+        <td scope="row">{{i+1}}</td>
+          
+          <td >{{item.productos.idProductos}}</td>
+          
+          <td >{{item.productos.nombre}}</td>
+          
+          <td >{{item.productos.marca.marca}}</td>
+          
+          <td >{{item.productos.genero.genero}}</td>
+          
+          <td >{{item.productos.precio | currency}}</td>
+          
+          <td >{{item.cantidadPedida}}</td>
+          
+          <td >{{item.tallaPedida.talla}}</td>
+          
+
+          <td >{{item.productos.precio * item.cantidadPedida | currency}}</td>
+          <a (click)="borrar()"  ><img class="eliminar" src="assets/eliminar.jpg" alt=""></a>
+          <!-- <td><button (click)="borrar()">borrar item</button></td> -->
+          
+
+      </tr>
+    </tbody>
+
+    <tfoot>
+      <tr>
+        <td>total</td>
+        <td><strong>{{ calcularTotal()| currency }}</strong>
+          </td>
+      </tr>
+     </tfoot>
+  </table>
+    
+
+</div>
+
+
+
+
+
+

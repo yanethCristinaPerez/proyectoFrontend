@@ -2,7 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Carrito } from 'src/app/interfaces/Carrito';
-import { CarritoNuevo } from 'src/app/interfaces/CarritoNuevo';
+
 import { Productos } from 'src/app/interfaces/Productos';
 import { Tallas } from 'src/app/interfaces/Tallas';
 import { Usuario } from 'src/app/interfaces/usuario';
@@ -24,7 +24,8 @@ export class ItemComponent implements OnInit{
   usuario!:Usuario;
 
   cantidad: number = 0;
-  tallaSeleccionada: number = 0;  
+  //tallaSeleccionada: number = 0;  
+  tallaSeleccionada!:Tallas;
   usuarioLogueado!: Usuario;
 
   
@@ -82,16 +83,16 @@ constructor(private route:ActivatedRoute,
        let tallaSeleccionada={tallaSeleccionada: this.tallaSeleccionada}
 
        
-       let objetoCombinado: CarritoNuevo = {
+       let nuevoObjeto: Carrito = {
          usuario: usuario.usuario,
          productos: this.productos,
          cantidadPedida: cantidad.cantidad,
          tallaPedida: tallaSeleccionada.tallaSeleccionada
      };
 
-     console.log("objeto que me va a guardar",objetoCombinado)
+     console.log("objeto que me va a guardar",nuevoObjeto)
 
-       this.carritoService.saveCarrito(objetoCombinado)
+       this.carritoService.saveCarrito(nuevoObjeto)
          .subscribe(result => {
            console.log(result);
          });

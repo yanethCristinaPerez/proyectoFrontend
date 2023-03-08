@@ -33,20 +33,6 @@ export class CatalogoComponent implements OnInit{
 
 
 
-
-  // this.productosService.getPorGenero(this.genero)
-  // .subscribe(producto => {
-  //   this.productos = producto;
-
-   
-    
-  // });
-  // .subscribe((respuesta:Productos[])=>{
-
-  //   this.productos=respuesta;
-  //   console.log(respuesta);
-  //   console.log(this.productos);
-  // })
   }
 
   
