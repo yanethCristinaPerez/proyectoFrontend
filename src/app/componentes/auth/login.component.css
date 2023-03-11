@@ -169,3 +169,19 @@ input:-moz-placeholder {
     /* align-items: center; */
     margin-top: -500px;
 }
+
+.carrito{
+    height: 100px;
+  width: 10000px;
+  display: flex;
+    
+    justify-content: center;
+ 
+}
+
+.nombre{
+    display: flex;
+    
+    justify-content: center;
+    margin-top: -70px;
+}

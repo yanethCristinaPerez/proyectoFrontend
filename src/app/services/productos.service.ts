@@ -49,5 +49,10 @@ export class ProductosService {
     const url= `${this.API_SERVER}/${id}`  
     return this.http.get<Productos[]>(url);
   }
+
+  actualizar(id: number): Observable<Productos> {
+    const url = `${this.API_SERVER}/${id}`;
+    return this.http.patch<Productos>(url, { headers: this.httpHeaders });
+  }
  
 }

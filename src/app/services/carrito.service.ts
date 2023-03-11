@@ -5,6 +5,7 @@ import { Factura } from '../interfaces/Factura';
 import { Productos } from '../interfaces/Productos';
 import { Observable } from 'rxjs';
 import { Usuario } from '../interfaces/usuario';
+import { CarritoCompras } from '../interfaces/CarritoCompras';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +22,7 @@ export class CarritoService {
 
 
 
-  public saveCarrito(carrito:Carrito): Observable<Carrito>{
+  public saveCarrito(carrito:CarritoCompras): Observable<Carrito>{
     return this.http.post<Carrito>(this.urlRegister,carrito,{headers:this.httpHeaders})
   }
 
@@ -29,6 +30,11 @@ export class CarritoService {
     console.log("estoy en el metodo de carritos");
     const url= `${this.urlRegister}/${id}`  
     return this.http.get<Carrito[]>(url);
+  }
+
+  eliminarItemPorId(id?: number): Observable<Carrito> {
+    const url = `${this.urlRegister}/${id}`;
+    return this.http.delete<Carrito>(url, { headers: this.httpHeaders })
   }
 
   

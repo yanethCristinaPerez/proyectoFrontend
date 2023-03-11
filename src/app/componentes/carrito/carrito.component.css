@@ -9,6 +9,12 @@
 }
 
 .eliminar{
-   /* height: 80px;  */
-  width: 800px;
+   height: 25px;  
+  width: 5000px;
+}
+
+.logo{
+  margin-top: -25px;
+  height: 100px;
+width: 100px;
 }

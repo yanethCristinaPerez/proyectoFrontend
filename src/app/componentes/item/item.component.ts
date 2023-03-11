@@ -2,7 +2,8 @@ import { Component,OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Carrito } from 'src/app/interfaces/Carrito';
-
+import { CarritoCompras } from 'src/app/interfaces/CarritoCompras';
+import { switchMap, tap } from 'rxjs/operators';
 import { Productos } from 'src/app/interfaces/Productos';
 import { Tallas } from 'src/app/interfaces/Tallas';
 import { Usuario } from 'src/app/interfaces/usuario';
@@ -28,7 +29,7 @@ export class ItemComponent implements OnInit{
   tallaSeleccionada!:Tallas;
   usuarioLogueado!: Usuario;
 
-  
+  actualizar!: Productos;
 
 constructor(private route:ActivatedRoute,
     public fb: FormBuilder,
@@ -57,6 +58,8 @@ constructor(private route:ActivatedRoute,
           
       });
 
+
+
       const correoUsuarioActual = localStorage.getItem('correo');
 
       console.log("el correo actual es===",correoUsuarioActual)
@@ -67,6 +70,16 @@ constructor(private route:ActivatedRoute,
            this.usuarioLogueado = item;
          }))
     }
+
+
+
+    
+    this.route.params.pipe(switchMap(({ idProductos }) => this.productosService.actualizar(idProductos)),
+    tap(console.log)
+  )
+  .subscribe(producto => {
+    this.actualizar = producto;
+  });
 
   }
 
@@ -83,7 +96,7 @@ constructor(private route:ActivatedRoute,
        let tallaSeleccionada={tallaSeleccionada: this.tallaSeleccionada}
 
        
-       let nuevoObjeto: Carrito = {
+       let nuevoObjeto: CarritoCompras = {
          usuario: usuario.usuario,
          productos: this.productos,
          cantidadPedida: cantidad.cantidad,
