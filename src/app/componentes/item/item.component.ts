@@ -73,14 +73,6 @@ constructor(private route:ActivatedRoute,
 
 
 
-    
-    this.route.params.pipe(switchMap(({ idProductos }) => this.productosService.actualizar(idProductos)),
-    tap(console.log)
-  )
-  .subscribe(producto => {
-    this.actualizar = producto;
-  });
-
   }
 
 

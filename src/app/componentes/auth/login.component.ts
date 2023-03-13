@@ -49,6 +49,8 @@ constructor(
           //const emailRegex = /\S+@\S+\.\S+/;
           const email = resp.correo;
 
+          
+
           console.log("este es el correo::::::",email)
           if (email !== null) {
           localStorage.setItem('correo', email);  

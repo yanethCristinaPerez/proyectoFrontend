@@ -1,16 +1,14 @@
 <ng-template #contenido let-modal>
     <div class="modal-header">
         <h4 class="modal-title">Registro</h4>
-        <button class="close" aria-label="close" type="button" (click)="modal.dismiss()" routerLink="/login">
-            <span aria-hidden="true">&times;</span>
-        </button>
+        
     </div>
     <div class="modal-body">
         <div class="container">
 
             <form id="signup"  [formGroup]="registroForm">
         
-                <div class="col-md-6 ml-5">
+                <div class="col-ms-6 ml-5">
                     <div class="form-group">
                         <label>Tipo de documento</label>
                         <select name="tipoDocumento" id="tipoDocumento" formControlName="tiposDocumentos" class="form-control" >
@@ -35,7 +33,11 @@
               
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <input type="password" formControlName="contrasena"class="form-control">
+                        <input type="password" formControlName="contrasena"class="form-control" id="clave1">
+                    </div>
+                    <div class="form-group">
+                        <label>confirmacion de Contraseña</label>
+                        <input type="password" formControlName="contrasena1"class="form-control" id="clave2">
                     </div>
                     <div>
                       La Contraseña debe contener un carácter especial
@@ -50,7 +52,7 @@
                     
                     <div>
         
-                        <button type="submit" class="btn btn-dark" (click)="guardar()" [disabled]="registroForm.invalid" >Registrar</button>
+                        <button type="submit" class="btn btn-dark" (click)="guardar()"  >Registrar</button>
                    </div>
                 
                 </div>
@@ -60,13 +62,13 @@
         </div>
         
     </div>
-    <div class="modal-footer">
+    <!-- <div class="modal-footer">
         <button type="button" class="btn btn-success" (click)="modal.close()" routerLink="/login">Ok!</button>
-    </div>
+    </div> -->
 </ng-template>
 
-<div class="alerta">
-    <button type="button" class="btn btn-outline-primary" (click)="openCentrado(contenido)">confirmar</button>
+<div >
+    <button type="submit" class="btn btn-outline-primary" (click)="openCentrado(contenido)" >registrarse</button>
 </div>
 
 
