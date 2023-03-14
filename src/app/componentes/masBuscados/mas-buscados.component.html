@@ -1,25 +1,30 @@
+<section>
 
-   <section > 
-  
-     <div class="content-section row"> 
-      <div class="col-md-3" *ngFor="let item of productos" >
-     
-        <div class="card">
-            <h1><img src="../assets/{{item.imagen}}" alt=""><small></small><a [routerLink]="['/item', item.idProductos]">click</a></h1>
-            <h2>nombre: <small>{{item.nombre}}</small></h2>
-            <!-- <h1>producto: <small>{{item.descripcion}}</small></h1>
-            <h2>color: <small>{{item.color.color}}</small></h2>
-            <h3>precio: <small>{{item.precio | number}}</small></h3>
-            <h4>marca: <small>{{item.marca.marca}}</small></h4> -->
-            
+ 
+
+    <div class="col-md-3" class="card estilo-c" *ngFor="let item of productos">
+      <a [routerLink]="['/item', item.idProductos]">
+        <div class="img-container">
+          <img src="../assets/{{item.imagen}}" alt="producto 1" >
+          
         </div>
+       </a>
+      <div class="info-container">
+        <h3>{{item.nombre}}</h3>
+        <strong>{{item.precio}}</strong>
+        <span class="rating">★★★★☆</span>
       
       </div>
-    </div> 
-            
-        
-  </section>  
+    </div>
+
+ 
     
+    
+</section>
+
+
+
+
 
 
 

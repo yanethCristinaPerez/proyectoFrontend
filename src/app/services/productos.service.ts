@@ -17,7 +17,8 @@ export class ProductosService {
 
   private API_SERVER = "http://localhost:8080/shop/catalogo";
   private API_SERVER_ = "http://localhost:8080/shop/catalogo/buscarPorGenero"
-  
+  private API_SERVER2_ = "http://localhost:8080/shop/catalogo/dispo"
+  private API_SERVER3_ = "http://localhost:8080/shop/catalogo/desc"
 
   private httpHeaders = new HttpHeaders({
     'Content-type': 'aplication/json'
@@ -50,5 +51,18 @@ export class ProductosService {
     return this.http.get<Productos[]>(url);
   }
 
+
+  
+  public disponible(idProducto:number,cantidadPedida:number): Observable<any>{
+    console.log("estoy en el metodo de disponibilidad");
+    const url= `${this.API_SERVER2_}/${idProducto}/${cantidadPedida}`  
+    return this.http.get<any>(url);
+  }
  
+
+  public actualizarInventario(idProducto:number,cantidadPedida:number): Observable<any>{
+    console.log("estoy en el metodo de inventario");
+    const url= `${this.API_SERVER3_}/${idProducto}/${cantidadPedida}`  
+    return this.http.get<any>(url);
+  }
 }

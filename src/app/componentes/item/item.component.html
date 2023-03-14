@@ -9,42 +9,76 @@
     </h1>
   
 </div>
+    <body>
+      <div class="container">
+      <article>
+        <h2 class="product-title">{{productos.nombre}}</h2>
 
-<section class="ae-container-fluid ae-container-fluid--inner rk-portfolio">
-  
-  <div class="content-section">
-    <div class="card">
-      <h1><img src="../assets/{{productos.imagen}}" alt=""> <small></small></h1>
-        <h2>nombre: <small>{{productos.nombre}}</small></h2>
-        <h1>descripcion: <small>{{productos.descripcion}}</small></h1>
-        <h2>seccion: <small>{{productos.genero.genero}}</small></h2>
-        <h2>color: <small>{{productos.color.color}}</small></h2>
-        <h2>cantidad Disponible: <small>{{productos.cantidadDisponible}}</small></h2>
-      
+         <div class="container_1">
+        <img src="../assets/{{productos.imagen}}" 
+             alt="Chuck Taylor All Shoes"
+             width="250"
+             height="250"
+             />
+        <p>
+        </div>
+          <div class="container_2">
+            <div class="internal_row">
+          <strong>precio: <small>{{productos.precio | number}}</small></strong>
+        <p class="shipping">seccion: <small>{{productos.genero.genero}}</small></p>
+          </div>
+        
+        <p class="statement">descripcion: <small>{{productos.descripcion}}</small>
+        </p>
+        <p class="sale">SALE</p>
+        
+        <div >
+        <div>color: <small>{{productos.color.color}}</small></div>
+        <br>
+        <div>marca: <small>{{productos.marca.marca}}</small></div>
+        <br>
+
+        <div>cantidad Disponible: <small>{{productos.cantidadDisponible}}</small></div>
+        <br>
+        <div class="form-group">
+          <label>Cantidad deseada</label>
+          <input type="number"  class="form-control"  [(ngModel)]="cantidad">
+      </div>
+      <br>
+      <br>
+        </div>
+        </div>
+        
+          <div class="container_3">
+            
+        <h3 class="product-detail">Products Details</h3>
+        
         <div >
           <label>Tallas</label>
           <select name="tallas" id="tallas" class="form-control" [(ngModel)]="tallaSeleccionada">
           <option [ngValue]="item" *ngFor="let item of tallas">{{ item.talla }}</option></select>
           
       </div>
-      
-        <h3>precio: <small>{{productos.precio | number}}</small></h3>
-        <h4>marca: <small>{{productos.marca.marca}}</small></h4>
-        
-        <div class="form-group">
-          <label>Cantidad deseada</label>
-          <input type="number"  class="form-control"  [(ngModel)]="cantidad">
-      </div>
-      <!-- <div class="form-group">
-        <label>talla deseada</label>
-        <input type="text"  class="form-control" [(ngModel)]="cantidad">
-    </div> -->
-
-
-        <button type="submit" class="btn btn-dark" (click)="agregarCarrito()" >agregar al carrito</button>
-    </div>
-  
-  </div>
+        </div>
        
-    
-  </section> 
+        <button class="cart" type="submit" (click)="agregarCarrito()">Add to cart</button>
+      </article>
+      </div>
+      
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

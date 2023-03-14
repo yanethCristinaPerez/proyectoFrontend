@@ -21,9 +21,10 @@ export class ItemComponent implements OnInit{
 
   productos!: Productos;
   tallas:any;
-  id: string ="";
+  id: number =0;
   usuario!:Usuario;
 
+  disponible:string="";
   cantidad: number = 0;
   //tallaSeleccionada: number = 0;  
   tallaSeleccionada!:Tallas;
@@ -87,6 +88,8 @@ constructor(private route:ActivatedRoute,
        let cantidad = { cantidad: this.cantidad }
        let tallaSeleccionada={tallaSeleccionada: this.tallaSeleccionada}
 
+
+
        
        let nuevoObjeto: CarritoCompras = {
          usuario: usuario.usuario,
@@ -97,10 +100,42 @@ constructor(private route:ActivatedRoute,
 
      console.log("objeto que me va a guardar",nuevoObjeto)
 
-       this.carritoService.saveCarrito(nuevoObjeto)
-         .subscribe(result => {
-           console.log(result);
-         });
+
+     console.log("id para el metodo disponiblidad==",this.id,"cantidad a guardar==",this.cantidad)
+
+          this.productosService.disponible(this.id,this.cantidad).subscribe((resp:any)=>{
+
+            const email = resp.disponible;
+      
+            console.log("la respuesta es====="+ email)
+
+            window.alert(email);
+
+            if(email=="es disponible"){
+
+              
+
+              
+                this.carritoService.saveCarrito(nuevoObjeto)
+                  .subscribe(result => {
+                    console.log(result);
+
+                    window.alert("producto guardado en el carrito")
+                  });
+
+
+
+            }else{
+              window.alert("ingrese otra cantiad")
+            }
+
+
+          })
+
+
+
+
+
 
 
   }

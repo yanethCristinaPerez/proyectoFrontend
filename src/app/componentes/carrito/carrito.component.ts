@@ -9,6 +9,7 @@ import { Usuario } from 'src/app/interfaces/usuario';
 import { AuthService } from 'src/app/services/auth.service';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { FacturaService } from 'src/app/services/factura.service';
+import { ProductosService } from 'src/app/services/productos.service';
 import Swal from'sweetalert2'
 declare var $: any;
 
@@ -47,7 +48,8 @@ export class CarritoComponent implements OnInit{
   constructor(private route:ActivatedRoute,
     public carritoService:CarritoService,
     public authService:AuthService,
-    public facturaService:FacturaService
+    public facturaService:FacturaService,
+    public productoService:ProductosService
     ){}
 
 
@@ -69,10 +71,10 @@ export class CarritoComponent implements OnInit{
           this.obtenerCarrito(this.idUsuarioActual);
 
 
-          // this.calcularTotal()
+          
        }))
 
-       //this.calcularTotal()
+       
        
   }
 
@@ -211,6 +213,20 @@ export class CarritoComponent implements OnInit{
            console.log("esta es la factura===",nuevoObjeto)
              this.facturaService.guardarFactura(nuevoObjeto).subscribe(data=>{
                alert("Se almaceno correctamente!")
+
+
+               if (Array.isArray(this.carrito)) {
+                for (const item of this.carrito) {
+                  let idProductos= item.productos.idProductos 
+                  let cantidadPedida=  item.cantidadPedida;
+
+                  this.productoService.actualizarInventario(idProductos,cantidadPedida).subscribe(resp=>{
+
+                    console.log("se mermo del inventario el id ",idProductos," la cantidad de",)
+                  })
+                }
+              }
+    
              },
              error=>{
                console.log(error);
@@ -228,7 +244,7 @@ export class CarritoComponent implements OnInit{
 
           
 
-          // let fecha={fecha: this.factura.fecha}
+ 
             }
             
 }
