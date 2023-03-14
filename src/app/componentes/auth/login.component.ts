@@ -46,7 +46,7 @@ constructor(
 
     console.log("estoy en el metodo consultar")
     this.loginService.login(this.loginForm?.value).subscribe( (resp:any)=>{
-          //const emailRegex = /\S+@\S+\.\S+/;
+          
           const email = resp.correo;
 
           

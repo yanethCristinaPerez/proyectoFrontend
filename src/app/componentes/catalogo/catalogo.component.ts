@@ -28,7 +28,7 @@ export class CatalogoComponent implements OnInit{
     this.productos = productos;
 
   }, (error) => {
-    // this.hayError = true;
+    
   });
 
 

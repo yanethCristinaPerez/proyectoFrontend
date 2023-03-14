@@ -26,7 +26,7 @@ export class ItemComponent implements OnInit{
 
   disponible:string="";
   cantidad: number = 0;
-  //tallaSeleccionada: number = 0;  
+
   tallaSeleccionada!:Tallas;
   usuarioLogueado!: Usuario;
 

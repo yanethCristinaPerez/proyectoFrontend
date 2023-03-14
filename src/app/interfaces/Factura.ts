@@ -10,5 +10,6 @@ export interface Factura {
     correo:string;
     usuario:Usuario;
     detalles:Carrito[];
+  //  detalles:DetalleFactura[]
         
     }

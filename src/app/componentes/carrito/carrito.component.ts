@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Carrito } from 'src/app/interfaces/Carrito';
 import { CarritoCompras } from 'src/app/interfaces/CarritoCompras';
+import { DetalleFactura } from 'src/app/interfaces/DetalleFactura';
 import { Factura } from 'src/app/interfaces/Factura';
 import { Productos } from 'src/app/interfaces/Productos';
 import { Tallas } from 'src/app/interfaces/Tallas';
@@ -27,7 +28,7 @@ export class CarritoComponent implements OnInit{
   alerta:string="";
 
   carrito:Carrito[] = [];
-
+  productosCarr!: Productos;
   productos!: Productos;
 
   tallaSeleccionada!:Tallas;
@@ -35,15 +36,16 @@ export class CarritoComponent implements OnInit{
 
   id:number=0;
   
-
+  tallaPedida!:Tallas;
   total:number = 0;
   cantidad: number = 0;
   precio: number = 0;
   subtotal: number = 0;
 
   ciudad1:string="";
-    direccion:string="";
-    correo:string="";
+  direccion:string="";
+  correo:string="";
+  cantidadPedida:number=0;
 
   constructor(private route:ActivatedRoute,
     public carritoService:CarritoService,
@@ -86,7 +88,12 @@ export class CarritoComponent implements OnInit{
 
         this.carritoService.getCarrito(this.idUsuarioActual).subscribe(resp=>{
         this.carrito=resp;
-        
+      
+       
+
+       
+       
+
         
       })
 
@@ -95,12 +102,18 @@ export class CarritoComponent implements OnInit{
 
     borrar(){
 
+     
+
+     
+
+
       console.log("estoy en el boton borrar")
       
-      this.carrito.shift();
+      
 
       const itemBorrado=this.carrito.shift();
 
+      
       let id=itemBorrado?.idItems;
 
       console.log("este es el id",id)
@@ -110,7 +123,9 @@ export class CarritoComponent implements OnInit{
       })
       
       
-      // console.log(itemBorrado);
+      
+
+      
     }
 
 
@@ -121,7 +136,11 @@ export class CarritoComponent implements OnInit{
           if (Array.isArray(this.carrito)) {
             for (const item of this.carrito) {
               total1 += item.productos.precio * item.cantidadPedida;
+
+                           
+
             }
+            
           }
           return total1;
           }
@@ -155,14 +174,12 @@ export class CarritoComponent implements OnInit{
                     resolve([
               
                       $('#swal-input1').val(),             
-          //     console.log($('#swal-input1').val()),       
-                      //document.getElementById('#swal-input1');
                       $('#swal-input2').val(),
                       $('#swal-input3').val(),
               
                     ])
               
-                    //console.log(resolve[0])
+                    
                   })
               
                 },
@@ -194,10 +211,41 @@ export class CarritoComponent implements OnInit{
 
 
                 let usuario={usuario:this.usuarioLogueado};
+
+
             let detalles= {detalles:this.carrito};
+
             
+ 
+            if (Array.isArray(this.carrito)) {
+              for (const item of this.carrito) {
+                
+  
+                this.cantidadPedida=item.cantidadPedida;
+                this.tallaPedida=item.tallaPedida;
+                
+                this.productosCarr=item.productos;
+                             
+  
+              }
+              
+            }
+                
+
+            let nuevoObjeto1: DetalleFactura = {
+              
+              cantidadPedida:this.cantidadPedida,
+                tallaPedida:this.tallaPedida,
+                usuario:this.usuarioLogueado,
+                productos:this.productosCarr
 
 
+          };
+
+
+          //let detalles= {detalles:nuevoObjeto1};
+
+          console.log("este es el objeto detalle factura",nuevoObjeto1)
 
              let nuevoObjeto: Factura = {
               
@@ -211,9 +259,16 @@ export class CarritoComponent implements OnInit{
            };
 
            console.log("esta es la factura===",nuevoObjeto)
+
+
+          //  this.authService.envioCorreo(correo,nuevoObjeto).subscribe(resp=>{
+          //   window.alert("se envio correo")
+          //  })
+
              this.facturaService.guardarFactura(nuevoObjeto).subscribe(data=>{
                alert("Se almaceno correctamente!")
 
+               
 
                if (Array.isArray(this.carrito)) {
                 for (const item of this.carrito) {
@@ -231,7 +286,8 @@ export class CarritoComponent implements OnInit{
              error=>{
                console.log(error);
                alert("Ocurrio un error");
-             })
+             }
+             )
           }
           
                 

@@ -1,9 +1,4 @@
 body {
-    /*background-image: url(http://kreativo.se/backlogin.jpg);*/
-  /* background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#8be8cf), color-stop(100%,#cdeb8b));
-  
-  
-    font-family: "Helvetica Neue", Helvetica, Arial; */
     padding-top: 20px;
 }
 
@@ -163,10 +158,10 @@ input:-moz-placeholder {
 }
 
 .imagen2{
-    /* float: right; */
+    
     display: flex;
     justify-content: right;
-    /* align-items: center; */
+    
     margin-top: -500px;
 }
 

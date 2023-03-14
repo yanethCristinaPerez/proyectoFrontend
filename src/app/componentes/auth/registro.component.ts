@@ -81,7 +81,7 @@ export class RegistroComponent implements OnInit{
           this.registroForm.reset();
           window.alert("registro exitoso")
                
-       //   // this._router.navigate(['/login']);
+      
  
         },
         error => {console.error(error)}
@@ -97,7 +97,7 @@ export class RegistroComponent implements OnInit{
 
   closeModal(){
 
-   // this.modalSS.$modal.emit(false)
+   
   this._router.navigate(['/login']);
   }    
 
